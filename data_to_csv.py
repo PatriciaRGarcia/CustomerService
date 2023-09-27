@@ -18,8 +18,11 @@ data_df = pd.DataFrame(columns=['date','max_emp','currently_working','currently_
                                 'calls_at_15',
                                 'calls_at_16'
                                 ])
+
+# define max employees here
 max_emp = 18
 
+# create mockup data per date in date_list and append to the data_df using pd.concat
 for date in date_list:
 
     currently_working = randint(10,max_emp)
@@ -40,9 +43,10 @@ for date in date_list:
 
     data_df = pd.concat([data_df, pd.DataFrame(data_dict)])
 
-
+# set index to date
 data_df.set_index('date', inplace=True)
 
+# export dataframe as csv
 data_df.to_csv('data/testData_month_orig.csv')
 
 
