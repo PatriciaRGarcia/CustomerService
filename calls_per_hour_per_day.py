@@ -13,11 +13,19 @@ n_df = pd.DataFrame(bar_df)
 n_df.reset_index(inplace=True)
 n_df.rename(
     columns={"index": "Hours", 0: "No of Calls"},
-    inplace=True,
+    inplace=True
 )
+color_dict = {'calls_at_9':'white',
+              'calls_at_10':'white',
+              'calls_at_11':'pink',
+              'calls_at_12':'pink',
+              'calls_at_13':'gold',
+              'calls_at_14':'gold',
+              'calls_at_15':'black',
+              'calls_at_16':'black'}
 app = Dash(__name__)
 
-fig = px.bar(n_df, x='Hours', y='No of Calls', title='Todays Calls',color='Hours')
+fig = px.bar(n_df, x='Hours', y='No of Calls', title='Todays Calls',color='Hours',color_discrete_map=color_dict)
 
 
 
